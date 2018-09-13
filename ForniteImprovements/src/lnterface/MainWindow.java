@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class MainWindow extends JFrame {
 
+	private InitialPanel initial;
+
 	public MainWindow() {
 
 		setLayout(new BorderLayout());
@@ -14,8 +16,34 @@ public class MainWindow extends JFrame {
 		setSize(1280, 768);
 		setResizable(false);
 
+		initial = new InitialPanel(this);
+
+		// Icon Application
+		Image icon = Toolkit.getDefaultToolkit().createImage("./images/logos/logo2.jpg");
+
+		setIconImage(icon);
+
+		add(initial, BorderLayout.CENTER);
+
 		setVisible(true);
 
+	}
+	
+	
+	public void refresh() {
+		
+	invalidate();
+	revalidate();
+	repaint();
+		
+		
+	}
+	
+	
+	public InitialPanel getInitialPanel() {
+		
+	return initial;	
+		
 	}
 
 	public static void main(String[] args) {
