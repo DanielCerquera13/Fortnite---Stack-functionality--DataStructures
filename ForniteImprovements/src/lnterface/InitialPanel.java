@@ -20,6 +20,7 @@ public class InitialPanel extends JPanel implements ActionListener {
 	public final static String PLAY = "PLAY";
 
 	private MainWindow main;
+	private LobbyPanel lobby;
 	private JTextField txtNick;
 	private JButton butPlay;
 	private JLabel labNick;
@@ -32,6 +33,9 @@ public class InitialPanel extends JPanel implements ActionListener {
 	public InitialPanel(MainWindow main) {
 
 		this.main = main;
+		
+		lobby = new LobbyPanel();
+		
 		loadingThread = new LoadingThread(main);
 		loadingBool = false;
 
@@ -143,6 +147,10 @@ public class InitialPanel extends JPanel implements ActionListener {
 
 					loadingBool = false;
 					labLoading.setText("");
+					main.remove(main.getInitialPanel());
+					main.add(lobby);
+					main.refresh();
+					
 
 				}
 			}, 5000);
