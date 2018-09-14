@@ -14,7 +14,7 @@ public class MainWindow extends JFrame {
 		setTitle("Fortnite");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(1280, 768);
-		setResizable(false);
+		setResizable(true);
 
 		initial = new InitialPanel(this);
 

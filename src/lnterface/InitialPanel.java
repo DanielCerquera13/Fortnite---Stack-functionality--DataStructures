@@ -32,14 +32,16 @@ public class InitialPanel extends JPanel implements ActionListener {
 
 	public InitialPanel(MainWindow main) {
 
+		setLayout(null);
+		
 		this.main = main;
 		
-		lobby = new LobbyPanel();
+		lobby = new LobbyPanel(this);
 		
 		loadingThread = new LoadingThread(main);
 		loadingBool = false;
 
-		setLayout(null);
+		
 
 		initComponents();
 
@@ -154,7 +156,7 @@ public class InitialPanel extends JPanel implements ActionListener {
 					
 
 				}
-			}, 5000);
+			}, 2000);
 
 		}
 
