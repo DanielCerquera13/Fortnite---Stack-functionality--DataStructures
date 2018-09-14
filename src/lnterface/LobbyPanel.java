@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 public class LobbyPanel extends JPanel implements ActionListener {
 	
 
+
+	public static final Image PING = Toolkit.getDefaultToolkit()
+			.createImage("./images/logos/greenbutton.png");
+	
 	public static final Image FOLDER = Toolkit.getDefaultToolkit()
 			.createImage("./images/logos/folder.png");
 	
@@ -30,6 +34,12 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	private JLabel name;
 	private JLabel level;
 	private JLabel iLevel; 
+	private JLabel ping;
+	private JLabel online;
+	private JLabel players;
+
+	
+
 	
 
 	public LobbyPanel(InitialPanel initial) {
@@ -43,11 +53,30 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		
 		matchmaking = new MatchmakingPanel(this);
 		
+		
+	
+		
+		players = new JLabel("60");
+		players.setFont(new Font("Garamond", 1, 12));
+		players.setForeground((Color.WHITE));
+
+		
+		online = new JLabel("Now playing");
+		online.setFont(new Font("Garamond", 1,12));
+		online.setForeground((Color.WHITE));
+
+	
+		
 		play = new JButton("PLAY");
 		play.addActionListener(this);
 		play.setActionCommand(PLAY);
 		play.setBackground(new Color(243,229,60));
+		play.setFont(new Font("Garamond", 1,24));
 
+		
+		ping = new JLabel("100");
+		ping.setFont(new Font("Garamond", 1, 12));
+		ping.setForeground((Color.GREEN.brighter()));
 		
 		
 		
@@ -80,10 +109,13 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	
 	public void Components ()
 	{
-		level.setBounds(95, 200, 200, 200);
+		level.setBounds(90, 200, 200, 200);
 		iLevel.setBounds(125,250,200,200);
 		name.setBounds(5,280,300,250);
-		play.setBounds(1000, 600, 150, 80);
+		play.setBounds(1000, 520, 180, 70);
+		ping.setBounds(1240, 10, 40, 40);
+		online.setBounds(1, 760, 100, 20);
+		players.setBounds(100, 760, 80, 20);
 
 		
 		
@@ -91,7 +123,9 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		add(iLevel);
 		add(name);
 		add(play);
-		
+		add(ping);
+		add(online);
+		add(players);
 		
 	}	
 	
@@ -108,6 +142,8 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		g.drawImage(OPTIONS, 190, 2, null);
 		g.drawImage(LOGO, 90, 140, null);
 		g.drawImage(FOLDER, 5, 450, null);
+		g.drawImage(PING, 1220, 22, null);
+
 
 
 
