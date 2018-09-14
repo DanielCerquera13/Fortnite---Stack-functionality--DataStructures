@@ -71,7 +71,7 @@ public class InitialPanel extends JPanel implements ActionListener {
 		txtNick.setBounds(60, 380, 315, 40);
 		txtNick.setFont(new Font("Garamond", 4, 32));
 
-		butPlay = new JButton("�PLAY!");
+		butPlay = new JButton("PLAY!");
 		butPlay.setBounds(135, 470, 165, 65);
 		butPlay.setFont(new Font("Garamond", 4, 32));
 		butPlay.setBackground(Color.WHITE);
