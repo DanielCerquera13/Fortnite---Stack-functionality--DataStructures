@@ -46,8 +46,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		play = new JButton("PLAY");
 		play.addActionListener(this);
 		play.setActionCommand(PLAY);
-		//play.setBackground(new Color(243,229,60));
-		play.setBackground(Color.BLUE);
+		play.setBackground(new Color(243,229,60));
 
 		
 		
