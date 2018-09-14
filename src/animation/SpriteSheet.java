@@ -2,10 +2,11 @@ package animation;
 
 import java.awt.image.BufferedImage;
 
+
 /**
  * 
  * This class represents a sprite sheet of an image.
- * @author Juan Camilo Vélez Olaya
+ * @author Juan Camilo Vï¿½lez Olaya
  *
  */
 public class SpriteSheet {
