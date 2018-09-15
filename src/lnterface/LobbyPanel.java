@@ -12,10 +12,10 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	
 
 
-	public static final String XBOX = "./images/logos/greenbutton.png";
-	public static final String PLAY4 = "./images/logos/greenbutton.png";
-	public static final String  PC= "./images/logos/greenbutton.png";
-	public static final String NINTENDO = "./images/logos/greenbutton.png";
+	public static final String XBOX = "./images/logos/xbox.png";
+	public static final String PLAY4 = "./images/logos/ps4.png";
+	public static final String  PC= "./images/logos/pc.png";
+	public static final String NINTENDO = "./images/logos/switch.png";
 
 
 	public static final Image PING = Toolkit.getDefaultToolkit()
@@ -71,36 +71,31 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		
 		radioPanel = new JPanel();
 		radioPanel.setLayout(new GridLayout(0, 1));
+		radioPanel.setBackground(new Color(67, 103, 177));
 		
 		buttons = new JPanel();
-		buttons.setSize(300,400);
+		buttons.setSize(500,600);
 		buttons.setLayout(new BorderLayout());
+		buttons.setBackground(new Color(67, 103, 177));
+		
 		plataforms = new ButtonGroup();
 		
 	     xbox = new JRadioButton("Xbox");
-	     xbox.setMnemonic (KeyEvent.VK_B);
 	     xbox.setActionCommand (XBOX);
-	     xbox.setSelected (true);
 	     
 
 	     play4 = new JRadioButton("Play 4");
-	     play4.setMnemonic (KeyEvent.VK_B);
-	     play4.setActionCommand (XBOX);
-	     play4.setSelected (true);
+	     play4.setActionCommand (PLAY4);
+	     play4.setSelected(true);
 	     
 
 	     pc = new JRadioButton("PC");
-	     pc.setMnemonic (KeyEvent.VK_B);
-	     pc.setActionCommand (XBOX);
-	     pc.setSelected (true);
-	     
+	     pc.setActionCommand (PC);
 	     
 	     
 
 	     nintendo = new JRadioButton("NINTENDO");
-	     nintendo.setMnemonic (KeyEvent.VK_B);
-	     nintendo.setActionCommand (XBOX);
-	     nintendo.setSelected (true);
+	     nintendo.setActionCommand (NINTENDO);
 	     
 	     plataforms.add(xbox);
 	     plataforms.add(play);
@@ -176,7 +171,8 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		ping.setBounds(1240, 10, 40, 40);
 		online.setBounds(1, 702, 100, 20);
 		players.setBounds(100, 702, 80, 20);
-		buttons.setBounds(1000, 600, 200, 200);
+		buttons.setBounds(1000, 100, 200, 200);
+        radioPanel.setBounds(1000, 100, 200, 200);
 
 		
 		
@@ -187,15 +183,15 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		add(ping);
 		add(online);
 		add(players);
-		radioPanel.add(xbox);
 		radioPanel.add(play4);
+		radioPanel.add(xbox);
 		radioPanel.add(pc);
 		radioPanel.add(nintendo);
 		
-		buttons.add(radioPanel);
-		buttons.add(image);
+		buttons.add(image, BorderLayout.EAST);
+		buttons.add(radioPanel, BorderLayout.WEST);
 
-		;
+		add(buttons);
 		
 	}	
 	
@@ -229,10 +225,19 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
 
-		if (command.equals("go")) {
+	
+		if(command.equals(NINTENDO)){
+			image.setIcon(new ImageIcon(NINTENDO));
+		}
+		if(command.equals(XBOX)){
+			image.setIcon(new ImageIcon(XBOX));
+		}
+		if(command.equals(PC)){
+			image.setIcon(new ImageIcon(PC));
 			
-			
-
+		}
+		if(command.equals(PLAY4)){
+			image.setIcon(new ImageIcon(PLAY4));
 		}
 
 	}
