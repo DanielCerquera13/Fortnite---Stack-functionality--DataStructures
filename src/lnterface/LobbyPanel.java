@@ -174,8 +174,8 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		name.setBounds(5,280,300,250);
 		play.setBounds(1000, 520, 180, 70);
 		ping.setBounds(1240, 10, 40, 40);
-		online.setBounds(1, 760, 100, 20);
-		players.setBounds(100, 760, 80, 20);
+		online.setBounds(1, 702, 100, 20);
+		players.setBounds(100, 702, 80, 20);
 		buttons.setBounds(1000, 600, 200, 200);
 
 		
