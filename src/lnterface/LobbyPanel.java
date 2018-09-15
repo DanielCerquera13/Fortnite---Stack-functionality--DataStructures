@@ -59,19 +59,35 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		buttons.setSize(500, 600);
 		buttons.setLayout(new BorderLayout());
 		buttons.setBackground(new Color(67, 103, 177));
+//		buttons.setFont(new Font("Garamond", 1, 14));
+		buttons.setForeground(Color.WHITE);
 
 		xbox = new JRadioButton("Xbox");
 		xbox.setActionCommand(XBOX);
+		xbox.setBackground(new Color(67, 103, 177));
+		xbox.setFont(new Font("Garamond", 1, 14));
+		xbox.setForeground(Color.WHITE);
 
 		play4 = new JRadioButton("Play 4");
 		play4.setActionCommand(PLAY4);
-
+		play4.setBackground(new Color(67, 103, 177));
+		play4.setFont(new Font("Garamond", 1, 14));
+		play4.setForeground(Color.WHITE);
+		
 		pc = new JRadioButton("PC");
 		pc.setActionCommand(PC);
-
+		pc.setBackground(new Color(67, 103, 177));
+		pc.setFont(new Font("Garamond", 1, 14));
+		pc.setForeground(Color.WHITE);
+		
+		
 		nintendo = new JRadioButton("NINTENDO");
 		nintendo.setActionCommand(NINTENDO);
-
+		nintendo.setBackground(new Color(67, 103, 177));
+		nintendo.setFont(new Font("Garamond", 1, 14));
+		nintendo.setForeground(Color.WHITE);
+		
+		
 		xbox.addActionListener(this);
 		play4.addActionListener(this);
 		pc.addActionListener(this);
