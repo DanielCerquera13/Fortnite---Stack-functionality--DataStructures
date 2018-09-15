@@ -59,7 +59,6 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		buttons.setSize(500, 600);
 		buttons.setLayout(new BorderLayout());
 		buttons.setBackground(new Color(67, 103, 177));
-//		buttons.setFont(new Font("Garamond", 1, 14));
 		buttons.setForeground(Color.WHITE);
 
 		xbox = new JRadioButton("Xbox");
@@ -73,21 +72,19 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		play4.setBackground(new Color(67, 103, 177));
 		play4.setFont(new Font("Garamond", 1, 14));
 		play4.setForeground(Color.WHITE);
-		
+
 		pc = new JRadioButton("PC");
 		pc.setActionCommand(PC);
 		pc.setBackground(new Color(67, 103, 177));
 		pc.setFont(new Font("Garamond", 1, 14));
 		pc.setForeground(Color.WHITE);
-		
-		
+
 		nintendo = new JRadioButton("NINTENDO");
 		nintendo.setActionCommand(NINTENDO);
 		nintendo.setBackground(new Color(67, 103, 177));
 		nintendo.setFont(new Font("Garamond", 1, 14));
 		nintendo.setForeground(Color.WHITE);
-		
-		
+
 		xbox.addActionListener(this);
 		play4.addActionListener(this);
 		pc.addActionListener(this);
@@ -207,6 +204,14 @@ public class LobbyPanel extends JPanel implements ActionListener {
 			pc.setSelected(false);
 			nintendo.setSelected(false);
 			xbox.setSelected(false);
+
+		}
+
+		if (command.equals(PLAY)) {
+			
+			initial.getMainWindow().remove(this);
+			initial.getMainWindow().add(matchmaking);
+			initial.getMainWindow().refresh();
 
 		}
 
