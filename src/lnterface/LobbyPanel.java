@@ -78,7 +78,6 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		buttons.setLayout(new BorderLayout());
 		buttons.setBackground(new Color(67, 103, 177));
 		
-		plataforms = new ButtonGroup();
 		
 	     xbox = new JRadioButton("Xbox");
 	     xbox.setActionCommand (XBOX);
@@ -96,12 +95,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 	     nintendo = new JRadioButton("NINTENDO");
 	     nintendo.setActionCommand (NINTENDO);
-	     
-	     plataforms.add(xbox);
-	     plataforms.add(play);
-	     plataforms.add(nintendo);
-	     plataforms.add(pc);
-	     
+	  
 	     xbox.addActionListener(this);
 	     play4.addActionListener(this);
 	     pc.addActionListener(this);
@@ -228,16 +222,30 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	
 		if(command.equals(NINTENDO)){
 			image.setIcon(new ImageIcon(NINTENDO));
+			xbox.setSelected(false);
+			play4.setSelected(false);
+			pc.setSelected(false);
 		}
 		if(command.equals(XBOX)){
 			image.setIcon(new ImageIcon(XBOX));
+			play4.setSelected(false);
+			pc.setSelected(false);
+			nintendo.setSelected(false);
 		}
 		if(command.equals(PC)){
 			image.setIcon(new ImageIcon(PC));
+			xbox.setSelected(false);
+			play4.setSelected(false);
+			nintendo.setSelected(false);
+
 			
 		}
 		if(command.equals(PLAY4)){
 			image.setIcon(new ImageIcon(PLAY4));
+			pc.setSelected(false);
+			nintendo.setSelected(false);
+			xbox.setSelected(false);
+
 		}
 
 	}
