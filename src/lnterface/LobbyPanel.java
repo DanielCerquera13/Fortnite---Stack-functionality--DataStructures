@@ -1,12 +1,21 @@
 package lnterface;
 
 import javax.swing.*;
+
+import com.sun.glass.events.KeyEvent;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LobbyPanel extends JPanel implements ActionListener {
 	
+
+
+	public static final String XBOX = "./images/logos/greenbutton.png";
+	public static final String PLAY4 = "./images/logos/greenbutton.png";
+	public static final String  PC= "./images/logos/greenbutton.png";
+	public static final String NINTENDO = "./images/logos/greenbutton.png";
 
 
 	public static final Image PING = Toolkit.getDefaultToolkit()
@@ -37,6 +46,13 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	private JLabel ping;
 	private JLabel online;
 	private JLabel players;
+	private JRadioButton xbox, play4, pc, nintendo;
+	private ButtonGroup plataforms;
+	private JPanel buttons;
+	private JPanel radioPanel;
+	private JLabel image;
+
+	
 
 	
 
@@ -53,8 +69,52 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		
 		matchmaking = new MatchmakingPanel(this);
 		
+		radioPanel = new JPanel();
+		radioPanel.setLayout(new GridLayout(0, 1));
 		
-	
+		buttons = new JPanel();
+		buttons.setSize(300,400);
+		buttons.setLayout(new BorderLayout());
+		plataforms = new ButtonGroup();
+		
+	     xbox = new JRadioButton("Xbox");
+	     xbox.setMnemonic (KeyEvent.VK_B);
+	     xbox.setActionCommand (XBOX);
+	     xbox.setSelected (true);
+	     
+
+	     play4 = new JRadioButton("Play 4");
+	     play4.setMnemonic (KeyEvent.VK_B);
+	     play4.setActionCommand (XBOX);
+	     play4.setSelected (true);
+	     
+
+	     pc = new JRadioButton("PC");
+	     pc.setMnemonic (KeyEvent.VK_B);
+	     pc.setActionCommand (XBOX);
+	     pc.setSelected (true);
+	     
+	     
+	     
+
+	     nintendo = new JRadioButton("NINTENDO");
+	     nintendo.setMnemonic (KeyEvent.VK_B);
+	     nintendo.setActionCommand (XBOX);
+	     nintendo.setSelected (true);
+	     
+	     plataforms.add(xbox);
+	     plataforms.add(play);
+	     plataforms.add(nintendo);
+	     plataforms.add(pc);
+	     
+	     xbox.addActionListener(this);
+	     play4.addActionListener(this);
+	     pc.addActionListener(this);
+	     nintendo.addActionListener(this);
+	     
+	    
+
+	     image= new JLabel();
 		
 		players = new JLabel("60");
 		players.setFont(new Font("Garamond", 1, 12));
@@ -116,6 +176,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		ping.setBounds(1240, 10, 40, 40);
 		online.setBounds(1, 760, 100, 20);
 		players.setBounds(100, 760, 80, 20);
+		buttons.setBounds(1000, 600, 200, 200);
 
 		
 		
@@ -126,6 +187,15 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		add(ping);
 		add(online);
 		add(players);
+		radioPanel.add(xbox);
+		radioPanel.add(play4);
+		radioPanel.add(pc);
+		radioPanel.add(nintendo);
+		
+		buttons.add(radioPanel);
+		buttons.add(image);
+
+		;
 		
 	}	
 	
