@@ -2,8 +2,6 @@ package lnterface;
 
 import javax.swing.*;
 
-import com.sun.glass.events.KeyEvent;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

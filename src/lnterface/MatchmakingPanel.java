@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+
+import threads.MatchmakingThread;
 
 public class MatchmakingPanel extends JPanel implements ActionListener {
 
@@ -15,15 +18,29 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	private LobbyPanel lobby;
 	private JPanel aux; // JTable here
 	private JPanel auxTwo; // Info Player and loading
+	private DefaultTableModel modelPlayers;
+	private List info;
 	private JTable players;
 	private JScrollPane scroll;
+
+	private JButton add;
+	private MatchmakingThread adding;
 
 	public MatchmakingPanel(LobbyPanel lobby) {
 
 		setLayout(new BorderLayout());
 
 		this.lobby = lobby;
+
+		add = new JButton("add");
+		add.setActionCommand("agregando");
+		add.addActionListener(this);
+
+		adding = new MatchmakingThread(this);
+
 		initAux();
+
+		adding.start();
 
 	}
 
@@ -47,9 +64,14 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		widthTwo.setSize(500, 1);
 
 		auxTwo = new JPanel();
+//		auxTwo.setLayout(null);
+
 		auxTwo.setBorder(border);
+
 		auxTwo.add(widthTwo);
 		auxTwo.setBackground(new Color(0, 0, 0, 60));
+
+		auxTwo.add(add);
 
 		playersTable();
 
@@ -65,9 +87,8 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 		String[] columns = { "Nickname", "Level", "Ping" };
 
-		Object[][] data = { { "JuanchoVelezPro", 100, 65 } };
-
-		players = new JTable(data, columns);
+		modelPlayers = new DefaultTableModel(columns, 0);
+		players = new JTable(modelPlayers);
 		players.setOpaque(false);
 		players.setBackground(new Color(0, 0, 0, 85));
 		players.setForeground(Color.WHITE.brighter());
@@ -90,6 +111,20 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		g.drawImage(BACKGROUND, 0, 0, null);
 
 		repaint();
+	}
+
+	public DefaultTableModel getTableModel() {
+
+		return modelPlayers;
+
+	}
+
+	public void justProve() {
+
+		Object[] row = { "hola", "50", "50" };
+
+		modelPlayers.addRow(row);
+
 	}
 
 	@Override
