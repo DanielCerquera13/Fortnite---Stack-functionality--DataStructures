@@ -29,19 +29,16 @@ public class InitialPanel extends JPanel implements ActionListener {
 	private LoadingThread loadingThread;
 	private boolean loadingBool;
 
-
 	public InitialPanel(MainWindow main) {
 
 		setLayout(null);
-		
+
 		this.main = main;
-		
+
 		lobby = new LobbyPanel(this);
-		
+
 		loadingThread = new LoadingThread(main);
 		loadingBool = false;
-
-		
 
 		initComponents();
 
@@ -72,6 +69,8 @@ public class InitialPanel extends JPanel implements ActionListener {
 		txtNick = new JTextField();
 		txtNick.setBounds(60, 380, 315, 40);
 		txtNick.setFont(new Font("Garamond", 4, 32));
+		txtNick.setBackground(new Color(0, 0, 0, 125));
+		txtNick.setForeground(Color.WHITE);
 
 		butPlay = new JButton("PLAY!");
 		butPlay.setBounds(135, 470, 165, 65);
@@ -91,7 +90,6 @@ public class InitialPanel extends JPanel implements ActionListener {
 		add(butPlay);
 
 	}
-	
 
 	@Override
 	public void paintComponent(Graphics g) {
@@ -153,7 +151,6 @@ public class InitialPanel extends JPanel implements ActionListener {
 					main.remove(main.getInitialPanel());
 					main.add(lobby);
 					main.refresh();
-					
 
 				}
 			}, 2000);
