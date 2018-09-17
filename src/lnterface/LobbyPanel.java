@@ -211,6 +211,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 			initial.getMainWindow().remove(this);
 			initial.getMainWindow().add(matchmaking);
 			initial.getMainWindow().refresh();
+			matchmaking.getMatchmakingThread().start();
 
 		}
 

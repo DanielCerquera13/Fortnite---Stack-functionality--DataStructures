@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
+import animation.Animation;
 import threads.MatchmakingThread;
 
 public class MatchmakingPanel extends JPanel implements ActionListener {
@@ -25,7 +26,8 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	private JScrollPane scroll;
 
 	private JButton add;
-	private MatchmakingThread adding;
+	private MatchmakingThread matchmaking;
+	private int x=1;
 
 	public MatchmakingPanel(LobbyPanel lobby) {
 
@@ -40,13 +42,20 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		add.setActionCommand("agregando");
 		add.addActionListener(this);
 
-		adding = new MatchmakingThread(this);
+		matchmaking = new MatchmakingThread(this);
 
 		initAux();
 
-		adding.start();
+		
 
 	}
+
+	public MatchmakingThread getMatchmakingThread() {
+		
+	return matchmaking;	
+		
+	}
+	
 
 	public void initAux() {
 
@@ -113,6 +122,10 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		super.paintComponent(g);
 
 		g.drawImage(BACKGROUND, 0, 0, null);
+		
+		Animation loading = lobby.getInitialPanel().getLoadingAnimation();
+		
+		loading.drawAnimation(g, 1030, 500, 0);
 
 		repaint();
 	}
@@ -125,7 +138,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 	public void justProve() {
 
-		Object[] row = { "hola", "50", "50" };
+		Object[] row = { x+++". hola", "50", "50" };
 
 		modelPlayers.addRow(row);
 

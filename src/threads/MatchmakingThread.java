@@ -18,12 +18,12 @@ public class MatchmakingThread extends Thread {
 	public void run() {
 		
 		
-	while(match.getTableModel().getRowCount() <=100) {
+	while(match.getTableModel().getRowCount() < 100) {
 		
 		
 	try {
 		
-	Thread.sleep(500);	
+	Thread.sleep(150);	
 	
 	match.justProve();	
 	
