@@ -16,6 +16,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 			.createImage("./images/backgrounds/lobbyBackground.jpg");
 
 	private LobbyPanel lobby;
+	private GamePanel game;
 	private JPanel aux; // JTable here
 	private JPanel auxTwo; // Info Player and loading
 	private DefaultTableModel modelPlayers;
@@ -31,6 +32,9 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		setLayout(new BorderLayout());
 
 		this.lobby = lobby;
+		
+		
+		game = new GamePanel();
 
 		add = new JButton("add");
 		add.setActionCommand("agregando");
@@ -131,6 +135,16 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		String command = e.getActionCommand();
+		
+		if(command.equals("agregando")) {
+			
+		lobby.getInitialPanel().getMainWindow().remove(this);
+		lobby.getInitialPanel().getMainWindow().add(game);
+		lobby.getInitialPanel().getMainWindow().refresh();
+			
+		}
+		
+		
 
 	}
 

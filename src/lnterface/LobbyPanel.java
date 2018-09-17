@@ -152,6 +152,12 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 	}
 
+	public InitialPanel getInitialPanel() {
+		
+	return initial;	
+		
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 
