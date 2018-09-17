@@ -8,9 +8,11 @@ public class Weapon {
 	private int x;
 	private int y;
 	
-	public Weapon() {
+	public Weapon(String name) {
 		
-		
+	this.name = name;
+	ammo = 30;
+	
 		
 	}
 	

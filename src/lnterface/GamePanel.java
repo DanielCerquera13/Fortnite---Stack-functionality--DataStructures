@@ -10,7 +10,7 @@ import javax.swing.*;
 public class GamePanel extends JPanel implements ActionListener {
     
 	public final static Image BACKGROUND = Toolkit.getDefaultToolkit()
-			.createImage("./images/backgrounds/game.png");
+			.createImage("./images/backgrounds/game.jpeg");
 
 	 private JPanel panelGame;
 	 private JPanel panelInfo;
@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		panelGame.setLayout(null);
 		
 		panelInfo = new JPanel();
-		panelInfo.setBackground(new Color(118, 191, 249));
+		panelInfo.setBackground(new Color(0,0,0,60));
 		
 		weapons = new JList<>();
 		weapons.setSelectionMode (ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		listScroller.setPreferredSize (new Dimension(300	, 250));
 		
 		
-		aux = new JLabel("                    ddasdasdasdgashjdasdasddaskd                                                     ");
+		aux = new JLabel("                                                                                                         ");
 		aux.setSize(500,1);
 		players = new JLabel("85",SwingConstants.CENTER);
 		players.setHorizontalAlignment(JLabel.CENTER);
@@ -89,7 +89,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
 		super.paintComponent(g);
 
-		g.drawImage(BACKGROUND, -100, 0, null);
+		g.drawImage(BACKGROUND, 0, 0, null);
 
 		repaint();
 	}
