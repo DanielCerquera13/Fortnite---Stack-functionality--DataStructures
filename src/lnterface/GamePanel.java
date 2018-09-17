@@ -40,6 +40,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		weapons.setVisibleRowCount (-1);
 		
 		
+		
 		JScrollPane listScroller = new JScrollPane (weapons);
 		listScroller.setPreferredSize (new Dimension(300	, 250));
 		
