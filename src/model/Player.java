@@ -6,26 +6,39 @@ import dataStructures.Stack;
 
 public class Player {
 
+	public static final String[] PLATFORMS = {"PS4", "XBOX", "PC", "NINTENDO"};
+	
+	
 	private int ping;
 	private String nickname;
 	private int level;
 	private Stack<Weapon> weapons;
 	private int x;
 	private int y;
+	private String platform;
 	private Random ran = new Random();
 
 	public Player(String nickname) {
 
 		this.nickname = nickname;
+		platform = null;
 
 		level = ran.nextInt((101 - 1) + 1);
-		ping = ran.nextInt((500 - 1) + 1);
+		ping = ran.nextInt((501 - 1) + 1);
 
 		weapons = new Stack<Weapon>(50, true);
 
 		x = 0;
 		y= 1110;
 		
+	}
+
+	public String getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
 
 	public void pickWeapon(Weapon weapon) {
