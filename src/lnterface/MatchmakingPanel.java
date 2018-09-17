@@ -15,6 +15,8 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 	public final static Image BACKGROUND = Toolkit.getDefaultToolkit()
 			.createImage("./images/backgrounds/lobbyBackground.jpg");
+	
+	public static final Image PLAYER = Toolkit.getDefaultToolkit().createImage("./images/sprites/Skin.png");
 
 	private LobbyPanel lobby;
 	private GamePanel game;
@@ -24,7 +26,6 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	private List info;
 	private JTable players;
 	private JScrollPane scroll;
-
 	private JButton add;
 	private MatchmakingThread matchmaking;
 	private int x=1;
@@ -32,18 +33,12 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	public MatchmakingPanel(LobbyPanel lobby) {
 
 		setLayout(new BorderLayout());
-
 		this.lobby = lobby;
-		
-		
 		game = new GamePanel();
-
 		add = new JButton("add");
 		add.setActionCommand("agregando");
 		add.addActionListener(this);
-
 		matchmaking = new MatchmakingThread(this);
-
 		initAux();
 
 		
@@ -120,12 +115,22 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
+		Font font= new Font("Garamond",4, 50);
 
 		g.drawImage(BACKGROUND, 0, 0, null);
+		g.drawImage(PLAYER, 600, -20, null);
+		
+		g.setFont(font);
+		g.setColor(Color.WHITE);
+		g.drawString("Loading...", 1000, 670);
+		
+		
+		
 		
 		Animation loading = lobby.getInitialPanel().getLoadingAnimation();
 		
 		loading.drawAnimation(g, 1030, 500, 0);
+		
 
 		repaint();
 	}
