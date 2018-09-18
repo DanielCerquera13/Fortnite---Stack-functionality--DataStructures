@@ -2,6 +2,8 @@ package lnterface;
 
 import javax.swing.*;
 
+import threads.DataUpdating;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +24,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	public final static String PLAY = "PLAY";
 
 	private InitialPanel initial;
+	private DataUpdating updating;
 	private MatchmakingPanel matchmaking;
 	private JButton play;
 	private JLabel name;
@@ -40,10 +43,13 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		setLayout(null);
 
 		this.initial = initial;
+		updating = new DataUpdating(this);
 
 		matchmaking = new MatchmakingPanel(this);
 
 		Components();
+		
+		updating.start();
 
 	}
 
@@ -175,6 +181,18 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 	}
 
+	public JLabel getPing() {
+		
+	return ping;	
+		
+	}
+	
+	public JLabel getPlayers() {
+		
+	return players;	
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();

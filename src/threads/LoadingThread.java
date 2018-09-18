@@ -21,7 +21,6 @@ public class LoadingThread extends Thread {
 
 				Thread.sleep(15);
 				main.getInitialPanel().getLoadingAnimation().runAnimation();
-				
 
 			} catch (InterruptedException ex) {
 

@@ -1,11 +1,15 @@
 package lnterface;
 
 import javax.swing.*;
+
+import model.Game;
+
 import java.awt.*;
 
 public class MainWindow extends JFrame {
 
 	private InitialPanel initial;
+	private Game game;
 
 	public MainWindow() {
 
@@ -17,6 +21,7 @@ public class MainWindow extends JFrame {
 		setResizable(false);
 
 		initial = new InitialPanel(this);
+		game = new Game();
 
 		// Icon Application
 		Image icon = Toolkit.getDefaultToolkit().createImage("./images/logos/logo2.jpg");
@@ -34,6 +39,12 @@ public class MainWindow extends JFrame {
 		invalidate();
 		revalidate();
 		repaint();
+
+	}
+
+	public Game getGame() {
+
+		return game;
 
 	}
 
