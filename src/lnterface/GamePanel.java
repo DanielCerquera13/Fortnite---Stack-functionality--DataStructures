@@ -12,6 +12,15 @@ import javax.swing.border.TitledBorder;
 public class GamePanel extends JPanel implements ActionListener {
 
 	public static final String AXE = "./images/weapons/AXE.png";
+	public static final String AXE1 = "./images/logos/pc.png";
+	public static final String AXE2 = "./images/logos/ps4.jpg";
+	public static final String AXE3 = "./images/logos/switch.png";
+	public static final String AXE4 = "./images/logos/level.png";
+	public static final String AXE5 = "./images/logos/xbox.png";
+
+	public final static String REMOVE= "REMOVE";
+	public final static String ADD= "ADD"; 
+ 
 
 	public final static Image BACKGROUND = Toolkit.getDefaultToolkit().createImage("./images/backgrounds/game.jpeg");
 
@@ -28,6 +37,9 @@ public class GamePanel extends JPanel implements ActionListener {
 	private JLabel weapon4;
 	private JLabel weapon5;
 	DefaultListModel<ImageIcon> listModel;
+	private JButton button;
+	private JButton button1;
+
 
 	public GamePanel() {
 
@@ -36,6 +48,15 @@ public class GamePanel extends JPanel implements ActionListener {
 		Border border = BorderFactory.createRaisedBevelBorder();
 		TitledBorder border1 = new TitledBorder("");
 
+		button = new JButton(ADD);
+		button.addActionListener(this);
+		button.setActionCommand(ADD);
+		
+		button1 = new JButton(REMOVE);
+		button1.addActionListener(this);
+		button1.setActionCommand(REMOVE);
+		
+		
 		axe = new JLabel();
 		weapon1 = new JLabel();
 		weapon2 = new JLabel();
@@ -45,18 +66,14 @@ public class GamePanel extends JPanel implements ActionListener {
 
 		panelGame = new JPanel();
 		panelGame.setSize(500, 600);
-		// panelGame.setBackground(Color.BLUE);
-		// panelGame.setLayout(null);
+		
 		panelGame.setBounds(1, 1, 900, 768);
 		panelGame.setBorder(border1);
 		panelGame.setOpaque(false);
 
 		panelInfo = new JPanel();
-		// panelInfo.setBackground(Color.gray);
 		panelInfo.setBackground(new Color(12, 12, 12, 60));
-		// panelInfo.setOpaque(false);
 
-		// panelInfo.setLayout(null);
 		panelInfo.setBounds(901, 1, 380, 768);
 		panelInfo.setLayout(null);
 
@@ -96,10 +113,9 @@ public class GamePanel extends JPanel implements ActionListener {
 		weapons.setBounds(130, 20, 100, 600);
 		players.setBounds(0, 550, 400, 200);
 		ammo.setBounds(-10, 600, 400, 200);
-		// axe.setBounds(50,300,200,200);
-		// aux.setBounds(1, 1, 200, 200);
-
-		// panelInfo.add(aux);
+		button.setBounds(100, 100, 80, 80);
+		button1.setBounds(300, 300, 100, 100);
+		
 
 		panelInfo.add(ammo);
 		panelInfo.add(players);
@@ -108,21 +124,32 @@ public class GamePanel extends JPanel implements ActionListener {
 
 		add(panelGame, BorderLayout.CENTER);
 		add(panelInfo, BorderLayout.EAST);
+		
+		add(button);
+		add(button1);
 	}
 
 	public void JList() {
 
-		axe.setIcon(new ImageIcon(AXE));
-		axe.setOpaque(false);
+		
 		ImageIcon image = new ImageIcon(AXE);
 		// weapons.add("asd", axe);
-		listModel.add(0, image);
-		listModel.add(1, image);
-		listModel.add(2, image);
-		listModel.add(3, image);
-		listModel.add(4, image);
-		listModel.add(5, image);
+		
+		ImageIcon image1 = new ImageIcon(AXE1);
+		ImageIcon image2 = new ImageIcon(AXE2);
+		ImageIcon image3 = new ImageIcon(AXE3);
+		ImageIcon image4 = new ImageIcon(AXE4);
+		ImageIcon image5 = new ImageIcon(AXE5);
 
+		
+		listModel.addElement(image);
+		listModel.addElement(image1);
+		listModel.addElement(image2);
+		listModel.addElement(image3);
+		listModel.addElement(image4);
+		listModel.addElement(image5);
+
+         
 	}
 
 	@Override
@@ -137,8 +164,16 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+            
+		String a = e.getActionCommand();
+		
+		if(a.equals(REMOVE)) {
+			listModel.removeElementAt(0);
+		}
+		if(a.equals(ADD)) {
+			ImageIcon image5 = new ImageIcon(AXE5);
+			listModel.add(0, image5);
+		}
 	}
 
 }
