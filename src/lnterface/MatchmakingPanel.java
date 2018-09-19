@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import animation.Animation;
 import model.Game;
+import model.Player;
 import threads.MatchmakingThread;
 
 public class MatchmakingPanel extends JPanel implements ActionListener {
@@ -42,6 +43,12 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		add.addActionListener(this);
 		matchmaking = new MatchmakingThread(this);
 		initAux();
+		
+		Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
+		
+		Object[] user = {player.getNickname(), player.getLevel(), player.getPing()};
+		
+		modelPlayers.addRow(user);
 
 	}
 
@@ -136,7 +143,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 	}
 
-	public void justProve() {
+	public void matchmaking() {
 
 		Random ran = new Random();
 

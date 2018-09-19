@@ -25,7 +25,7 @@ public class MatchmakingThread extends Thread {
 		
 	Thread.sleep(150);	
 	
-	match.justProve();	
+	match.matchmaking();	
 	
 	
 	}catch(InterruptedException ex) {

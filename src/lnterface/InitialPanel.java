@@ -132,29 +132,37 @@ public class InitialPanel extends JPanel implements ActionListener {
 
 		if (command.equals(PLAY)) {
 
-			this.removeAll();
-			loadingBool = true;
+			if (txtNick.getText().equals("") || txtNick.getText() == null) {
 
-			loadingThread.start();
+				JOptionPane.showMessageDialog(null, "Please insert a nickname", "Error", JOptionPane.ERROR_MESSAGE);
 
-			add(labLoading);
+			} else {
 
-			Timer timer = new Timer();
+				main.getGame().getUser().setNickname(txtNick.getText());
 
-			timer.schedule(new TimerTask() {
+				this.removeAll();
+				loadingBool = true;
 
-				@Override
-				public void run() {
+				loadingThread.start();
 
-					loadingBool = false;
-					labLoading.setText("");
-					main.remove(main.getInitialPanel());
-					main.add(lobby);
-					main.refresh();
+				add(labLoading);
 
-				}
-			}, 2000);
+				Timer timer = new Timer();
 
+				timer.schedule(new TimerTask() {
+
+					@Override
+					public void run() {
+
+						loadingBool = false;
+						labLoading.setText("");
+						main.remove(main.getInitialPanel());
+						main.add(lobby);
+						main.refresh();
+
+					}
+				}, 2000);
+			}
 		}
 
 	}

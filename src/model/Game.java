@@ -8,21 +8,34 @@ import java.util.Random;
 
 public class Game {
 
+	
+	private Player user;
 	private ArrayList<Player> playersOnline;
+
 
 	public Game() {
 
+		
+		user = new Player(null);
 		playersOnline = new ArrayList<Player>();
 
+		playersOnline.add(user);
+		
 		try {
 			connectingPlayers();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 	}
 
+	public Player getUser() {
+		
+	return user;	
+		
+	}
+	
 	public void connectingPlayers() throws IOException {
 
 		Random ran = new Random();

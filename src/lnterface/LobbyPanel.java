@@ -43,11 +43,15 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		setLayout(null);
 
 		this.initial = initial;
+		
 		updating = new DataUpdating(this);
 
 		matchmaking = new MatchmakingPanel(this);
 
 		Components();
+		
+//		name.setText(initial.getMainWindow().getGame().getUser().getNickname());
+		System.out.println(initial.getMainWindow().getGame().getUser().getNickname());
 		
 		updating.start();
 
@@ -114,18 +118,15 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		ping.setFont(new Font("Garamond", 1, 16));
 		ping.setForeground((Color.GREEN.brighter()));
 
-		name = new JLabel("JUANCHOTAGRANDE", SwingConstants.CENTER);
-		name.setLayout(null);
-		name.setFont(new Font("Garamond", 4, 24));
+		name = new JLabel("", SwingConstants.CENTER);
+		name.setFont(new Font("Garamond", 4, 36));
 		name.setForeground(Color.WHITE);
 
 		level = new JLabel("LEVEL");
-		level.setLayout(null);
 		level.setFont(new Font("Garamond", 4, 44));
 		level.setForeground((Color.WHITE));
 
 		iLevel = new JLabel("40");
-		iLevel.setLayout(null);
 		iLevel.setFont(new Font("Garamond", 4, 44));
 		iLevel.setForeground((Color.WHITE));
 
@@ -158,6 +159,8 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 	}
 
+	
+	
 	public InitialPanel getInitialPanel() {
 		
 	return initial;	
@@ -187,6 +190,20 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		
 	}
 	
+	public JLabel getLevel() {
+		
+	return iLevel;	
+		
+	}
+	
+	public JLabel getNameUser() {
+		return name;
+	}
+
+	public void setName(JLabel name) {
+		this.name = name;
+	}
+
 	public JLabel getPlayers() {
 		
 	return players;	

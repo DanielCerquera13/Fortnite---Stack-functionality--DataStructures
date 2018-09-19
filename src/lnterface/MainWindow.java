@@ -20,8 +20,10 @@ public class MainWindow extends JFrame {
 		setSize(1280, 768);
 		setResizable(false);
 
-		initial = new InitialPanel(this);
 		game = new Game();
+		
+		initial = new InitialPanel(this);
+		
 
 		// Icon Application
 		Image icon = Toolkit.getDefaultToolkit().createImage("./images/logos/logo2.jpg");
