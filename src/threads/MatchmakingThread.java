@@ -6,6 +6,7 @@ public class MatchmakingThread extends Thread {
 
 	
 	private MatchmakingPanel match;
+	boolean userAdded = false;
 	
 	public MatchmakingThread(MatchmakingPanel match) {
 		
@@ -20,6 +21,13 @@ public class MatchmakingThread extends Thread {
 		
 	while(match.getTableModel().getRowCount() < 100) {
 		
+		
+	if(!userAdded) {
+		
+	match.matchmakingUser();
+	userAdded = true;
+		
+	}
 		
 	try {
 		

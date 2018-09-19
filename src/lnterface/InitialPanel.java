@@ -119,6 +119,12 @@ public class InitialPanel extends JPanel implements ActionListener {
 		return main;
 
 	}
+	
+	public JTextField getTxtNick() {
+		
+	return txtNick;	
+		
+	}
 
 	public LoadingThread getLoadingThread() {
 

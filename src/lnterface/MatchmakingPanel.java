@@ -26,7 +26,6 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 	private JPanel aux; // JTable here
 	private JPanel auxTwo; // Info Player and loading
 	private DefaultTableModel modelPlayers;
-	private List info;
 	private JTable players;
 	private JScrollPane scroll;
 	private JButton add;
@@ -44,11 +43,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		matchmaking = new MatchmakingThread(this);
 		initAux();
 		
-		Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
-		
-		Object[] user = {player.getNickname(), player.getLevel(), player.getPing()};
-		
-		modelPlayers.addRow(user);
+	
 
 	}
 
@@ -157,6 +152,16 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 		modelPlayers.addRow(row);
 
+	}
+	
+	public void matchmakingUser() {
+		
+	Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
+		
+	Object[] user = {player.getNickname(), player.getLevel(), player.getPing()};
+		
+	modelPlayers.addRow(user);
+		
 	}
 
 	@Override
