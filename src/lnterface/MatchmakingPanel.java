@@ -36,14 +36,14 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 		setLayout(new BorderLayout());
 		this.lobby = lobby;
-		game = new GamePanel();
+
+		game = new GamePanel(this);
+
 		add = new JButton("add");
 		add.setActionCommand("agregando");
 		add.addActionListener(this);
 		matchmaking = new MatchmakingThread(this);
 		initAux();
-		
-	
 
 	}
 
@@ -153,15 +153,21 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		modelPlayers.addRow(row);
 
 	}
-	
+
 	public void matchmakingUser() {
-		
-	Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
-		
-	Object[] user = {player.getNickname(), player.getLevel(), player.getPing()};
-		
-	modelPlayers.addRow(user);
-		
+
+		Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
+
+		Object[] user = { player.getNickname(), player.getLevel(), player.getPing() };
+
+		modelPlayers.addRow(user);
+
+	}
+
+	public LobbyPanel getLobby() {
+
+		return lobby;
+
 	}
 
 	@Override
@@ -175,6 +181,10 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 			lobby.getInitialPanel().getMainWindow().add(game);
 			lobby.getInitialPanel().getMainWindow().refresh();
 
+			JOptionPane.showMessageDialog(null, "Welcome to Fortnite", "Play", JOptionPane.INFORMATION_MESSAGE,
+					new ImageIcon("./images/logos/logo.jpg"));
+			JOptionPane.showMessageDialog(null, "To pick the weapons just press C \nTo shoot just press SPACE", "Instructions",
+					JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./images/logos/logo.jpg"));
 		}
 
 	}

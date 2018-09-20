@@ -6,9 +6,8 @@ import dataStructures.Stack;
 
 public class Player {
 
-	public static final String[] PLATFORMS = {"PS4", "XBOX", "PC", "NINTENDO"};
-	
-	
+	public static final String[] PLATFORMS = { "PS4", "XBOX", "PC", "NINTENDO" };
+
 	private int ping;
 	private String nickname;
 	private int level;
@@ -28,9 +27,9 @@ public class Player {
 
 		weapons = new Stack<Weapon>(50, true);
 
-		x = 0;
-		y= 1110;
-		
+		x = 10;
+		y = 500;
+
 	}
 
 	public String getPlatform() {
@@ -42,29 +41,29 @@ public class Player {
 	}
 
 	public void pickWeapon(Weapon weapon) {
-	
-	weapons.push(weapon);	
-		
+
+		weapons.push(weapon);
+
 	}
-	
+
 	public void dropWeapon() {
-		
-	weapons.pop();	
-		
+
+		weapons.pop();
+
 	}
-	
+
 	public void move() {
-		
-	x+=10;	
-		
+
+		setX(x + 5);
+
 	}
-	
+
 	public void back() {
-		
-	x-=10;	
-		
+
+		setX(x - 5);
+
 	}
-	
+
 	public int getPing() {
 		return ping;
 	}
