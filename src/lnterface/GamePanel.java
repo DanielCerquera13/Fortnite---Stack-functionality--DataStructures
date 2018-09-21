@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,6 +16,7 @@ import javax.swing.border.TitledBorder;
 import animation.Animation;
 import animation.BufferedImageLoader;
 import model.Player;
+import model.Weapon;
 import threads.PlayerMovementThread;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
@@ -60,6 +62,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	private BufferedImage runningSprite;
 	private boolean run = false;
 	private boolean explode = false;
+	private Weapon currentWeapon;
 
 	public GamePanel(MatchmakingPanel matchmaking) {
 
@@ -68,6 +71,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		setLayout(null);
 
 		BufferedImageLoader loader = new BufferedImageLoader();
+		currentWeapon = matchmaking.getLobby().getInitialPanel().getMainWindow().getGame().getUser().getActualWeapon();
 
 		try {
 
@@ -134,7 +138,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		players.setForeground(Color.WHITE);
 		players.setFont(new Font("Garamond", 1, 18));
 
-		ammo = new JLabel("CANTIDAD DE MUNICION: 40 ", SwingConstants.CENTER);
+		ammo = new JLabel("Ammo : " + currentWeapon.getAmmo() + "", SwingConstants.CENTER);
 		ammo.setHorizontalAlignment(JLabel.CENTER);
 		ammo.setForeground(Color.WHITE);
 		ammo.setFont(new Font("Garamond", 1, 18));
@@ -143,7 +147,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		JList();
 
-		playerMovement = new PlayerMovementThread(this);
+		playerMovement = new PlayerMovementThread(this,
+				matchmaking.getLobby().getInitialPanel().getMainWindow().getGame());
 		playerMovement.start();
 
 		addKeyListener(this);
@@ -172,22 +177,36 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 //		add(button1);
 	}
 
+	public JLabel getAmmo() {
+
+		return ammo;
+
+	}
+
+	public Weapon getCurrentWeapon() {
+
+		return currentWeapon;
+
+	}
+
 	public void JList() {
 
 		ImageIcon image = new ImageIcon(AXE);
 
-		ImageIcon image1 = new ImageIcon(WEAPON1);
-		ImageIcon image2 = new ImageIcon(WEAPON2);
-		ImageIcon image3 = new ImageIcon(WEAPON3);
-		ImageIcon image4 = new ImageIcon(WEAPON4);
-		ImageIcon image5 = new ImageIcon(WEAPON5);
+		Weapon axe = matchmaking.getLobby().getInitialPanel().getMainWindow().getGame().getUser().getActualWeapon();
 
-		listModel.addElement(image);
-		listModel.addElement(image1);
-		listModel.addElement(image2);
-		listModel.addElement(image3);
-		listModel.addElement(image4);
-		listModel.addElement(image5);
+//		ImageIcon image1 = new ImageIcon(WEAPON1);
+//		ImageIcon image2 = new ImageIcon(WEAPON2);
+//		ImageIcon image3 = new ImageIcon(WEAPON3);
+//		ImageIcon image4 = new ImageIcon(WEAPON4);
+//		ImageIcon image5 = new ImageIcon(WEAPON5);
+
+		listModel.addElement(new ImageIcon(axe.getName()));
+//		listModel.addElement(image1);
+//		listModel.addElement(image2);
+//		listModel.addElement(image3);
+//		listModel.addElement(image4);
+//		listModel.addElement(image5);
 
 	}
 
@@ -257,6 +276,36 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (event == KeyEvent.VK_SPACE) {
 
 			explode = true;
+
+			Player user = matchmaking.getLobby().getInitialPanel().getMainWindow().getGame().getUser();
+
+			user.getActualWeapon().shoot();
+
+			if (currentWeapon.getAmmo() == 0) {
+
+				user.dropWeapon();
+				listModel.removeElementAt(0);
+				currentWeapon = user.getActualWeapon();
+
+			}
+
+		}
+
+		if (event == KeyEvent.VK_C) {
+
+			Random ran = new Random();
+
+			Weapon[] weapons = matchmaking.getLobby().getInitialPanel().getMainWindow().getGame().getWeapons();
+
+			int i = ran.nextInt(weapons.length);
+
+			Player user = matchmaking.getLobby().getInitialPanel().getMainWindow().getGame().getUser();
+
+			user.pickWeapon(weapons[i]);
+
+			currentWeapon = weapons[i];
+
+			listModel.add(0, new ImageIcon(user.getActualWeapon().getName()));
 
 		}
 

@@ -30,7 +30,7 @@ public class Game {
 
 		playersOnline.add(user);
 
-		weapons = new Weapon[50];
+		weapons = new Weapon[15];
 
 		priorityQueue = new PriorityQueue<Integer, Player>();
 

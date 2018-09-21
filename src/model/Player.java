@@ -26,6 +26,11 @@ public class Player {
 		ping = ran.nextInt((151 - 1) + 1);
 
 		weapons = new Stack<Weapon>(50, true);
+		
+		Weapon axe = new Weapon(Weapon.NAMES[0]);
+		axe.setAmmo(99999);
+		
+		pickWeapon(axe);
 
 		x = 10;
 		y = 500;
