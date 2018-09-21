@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import dataStructures.PriorityQueue;
+
 public class Game {
 
 	private Player user;
@@ -14,6 +16,7 @@ public class Game {
 	private ArrayList<Player> playersXbox;
 	private ArrayList<Player> playersPC;
 	private ArrayList<Player> playersNintendo;
+	private PriorityQueue<Integer, Player> priorityQueue;
 
 	public Game() {
 
@@ -25,6 +28,8 @@ public class Game {
 		playersNintendo = new ArrayList<Player>();
 
 		playersOnline.add(user);
+
+		priorityQueue = new PriorityQueue<Integer, Player>();
 
 		try {
 			connectingPlayers();
@@ -633,6 +638,34 @@ public class Game {
 
 	}
 
+	public void stablishPriorityToMatch() {
+
+		if (user.getPlatform().equals("PS4")) {
+
+			for (int i = 0; i < playersPlay4.size(); i++) {
+
+				if (Math.abs(playersPlay4.get(i).getLevel() - user.getLevel()) <= 50) {
+
+					priorityQueue.add(2, playersPlay4.get(i));
+
+				} else {
+
+					priorityQueue.add(1, playersPlay4.get(i));
+
+				}
+
+			}
+
+		}
+
+	}
+
+	public PriorityQueue<Integer, Player> getPriorityQueue() {
+
+		return priorityQueue;
+
+	}
+
 	public ArrayList<Player> getPlayersPlay4() {
 		return playersPlay4;
 	}
@@ -670,6 +703,5 @@ public class Game {
 		return playersOnline;
 
 	}
-	
 
 }

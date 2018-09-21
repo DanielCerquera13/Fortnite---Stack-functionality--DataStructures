@@ -240,11 +240,13 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 		}
 
-		if (command.equals(PLAY) && (pc.isSelected() || nintendo.isSelected() || xbox.isSelected() || play4.isSelected())) {
+		if (command.equals(PLAY)
+				&& (pc.isSelected() || nintendo.isSelected() || xbox.isSelected() || play4.isSelected())) {
 
 			initial.getMainWindow().remove(this);
 			initial.getMainWindow().add(matchmaking);
 			initial.getMainWindow().refresh();
+
 			matchmaking.getMatchmakingThread().start();
 
 		}
@@ -274,11 +276,11 @@ public class LobbyPanel extends JPanel implements ActionListener {
 			initial.getMainWindow().getGame().getUser().setPlatform("XBOX");
 
 		}
-		
-		if(play4.isSelected()) {
-			
+
+		if (play4.isSelected()) {
+
 			initial.getMainWindow().getGame().getUser().setPlatform("PS4");
-			
+
 		}
 
 	}

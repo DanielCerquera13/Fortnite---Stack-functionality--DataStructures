@@ -24,8 +24,8 @@ public class DataUpdating extends Thread {
 			try {
 
 				Thread.sleep(1500);
-				lobby.getPing().setText(ran.nextInt(5) + 60 + "");
-				lobby.getPlayers().setText(ran.nextInt(10) + 2820600 + "");
+				lobby.getPing().setText(ran.nextInt(3)+lobby.getInitialPanel().getMainWindow().getGame().getUser().getPing()+"");
+				lobby.getPlayers().setText(ran.nextInt(10) + lobby.getInitialPanel().getMainWindow().getGame().getPlayersOnline().size() + "");
 				lobby.getNameUser().setText(lobby.getInitialPanel().getMainWindow().getGame().getUser().getNickname());
 				lobby.getLevel().setText(lobby.getInitialPanel().getMainWindow().getGame().getUser().getLevel() + "");
 

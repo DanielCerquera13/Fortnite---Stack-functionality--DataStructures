@@ -23,7 +23,7 @@ public class Player {
 		platform = PLATFORMS[ran.nextInt(PLATFORMS.length)];
 
 		level = ran.nextInt((101 - 1) + 1);
-		ping = ran.nextInt((250 - 1) + 1);
+		ping = ran.nextInt((151 - 1) + 1);
 
 		weapons = new Stack<Weapon>(50, true);
 

@@ -147,54 +147,66 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 		if (user.getPlatform().equals("PS4")) {
 
-			Object[] row = {
-					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getNickname()
-							+ ran.nextInt(9999),
-					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getLevel(),
-					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getPing(),
-					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getPlatform() };
+			int r = ran.nextInt(game.getPlayersPlay4().size());
 
-			modelPlayers.addRow(row);
+			if (Math.abs(game.getPlayersPlay4().get(r).getLevel() - user.getLevel()) <= 5) {
+				if (Math.abs(game.getPlayersPlay4().get(r).getPing() - user.getPing()) <= 80) {
+					Object[] row = { game.getPlayersPlay4().get(r).getNickname() + ran.nextInt(9999),
+							game.getPlayersPlay4().get(r).getLevel(), game.getPlayersPlay4().get(r).getPing(),
+							game.getPlayersPlay4().get(r).getPlatform() };
 
+					modelPlayers.addRow(row);
+
+				}
+			}
 		}
-		
+
 		if (user.getPlatform().equals("NINTENDO")) {
 
-			Object[] row = {
-					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getNickname()
-							+ ran.nextInt(9999),
-					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getLevel(),
-					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getPing(),
-					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getPlatform() };
+			int r = ran.nextInt(game.getPlayersNintendo().size());
 
-			modelPlayers.addRow(row);
+			if (Math.abs(game.getPlayersNintendo().get(r).getLevel() - user.getLevel()) <= 5) {
+				if (Math.abs(game.getPlayersNintendo().get(r).getPing() - user.getPing()) <= 80) {
+					Object[] row = { game.getPlayersNintendo().get(r).getNickname() + ran.nextInt(9999),
+							game.getPlayersNintendo().get(r).getLevel(), game.getPlayersNintendo().get(r).getPing(),
+							game.getPlayersNintendo().get(r).getPlatform() };
 
+					modelPlayers.addRow(row);
+
+				}
+			}
 		}
-		
+
 		if (user.getPlatform().equals("XBOX")) {
 
-			Object[] row = {
-					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getNickname()
-							+ ran.nextInt(9999),
-					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getLevel(),
-					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getPing(),
-					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getPlatform() };
+			int r = ran.nextInt(game.getPlayersXbox().size());
 
-			modelPlayers.addRow(row);
+			if (Math.abs(game.getPlayersXbox().get(r).getLevel() - user.getLevel()) <= 5) {
+				if (Math.abs(game.getPlayersXbox().get(r).getPing() - user.getPing()) <= 80) {
+					Object[] row = { game.getPlayersXbox().get(r).getNickname() + ran.nextInt(9999),
+							game.getPlayersXbox().get(r).getLevel(), game.getPlayersXbox().get(r).getPing(),
+							game.getPlayersXbox().get(r).getPlatform() };
 
+					modelPlayers.addRow(row);
+
+				}
+			}
 		}
-		
+
 		if (user.getPlatform().equals("PC")) {
 
-			Object[] row = {
-					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getNickname()
-							+ ran.nextInt(9999),
-					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getLevel(),
-					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getPing(),
-					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getPlatform() };
+			int r = ran.nextInt(game.getPlayersPC().size());
 
-			modelPlayers.addRow(row);
+			if (Math.abs(game.getPlayersPC().get(r).getLevel() - user.getLevel()) <= 5) {
+				if (Math.abs(game.getPlayersPC().get(r).getPing() - user.getPing()) <= 80) {
+					Object[] row = { game.getPlayersPC().get(r).getNickname() + ran.nextInt(9999),
+							game.getPlayersPC().get(r).getLevel(), game.getPlayersPC().get(r).getPing(),
+							game.getPlayersPC().get(r).getPlatform() };
 
+					modelPlayers.addRow(row);
+
+				}
+			}
 		}
 
 //		Object[] row = {
