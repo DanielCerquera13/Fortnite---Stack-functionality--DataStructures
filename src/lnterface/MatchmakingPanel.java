@@ -157,6 +157,45 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 			modelPlayers.addRow(row);
 
 		}
+		
+		if (user.getPlatform().equals("NINTENDO")) {
+
+			Object[] row = {
+					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getNickname()
+							+ ran.nextInt(9999),
+					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getLevel(),
+					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getPing(),
+					game.getPlayersNintendo().get(ran.nextInt(game.getPlayersNintendo().size())).getPlatform() };
+
+			modelPlayers.addRow(row);
+
+		}
+		
+		if (user.getPlatform().equals("XBOX")) {
+
+			Object[] row = {
+					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getNickname()
+							+ ran.nextInt(9999),
+					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getLevel(),
+					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getPing(),
+					game.getPlayersXbox().get(ran.nextInt(game.getPlayersXbox().size())).getPlatform() };
+
+			modelPlayers.addRow(row);
+
+		}
+		
+		if (user.getPlatform().equals("PC")) {
+
+			Object[] row = {
+					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getNickname()
+							+ ran.nextInt(9999),
+					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getLevel(),
+					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getPing(),
+					game.getPlayersPC().get(ran.nextInt(game.getPlayersPC().size())).getPlatform() };
+
+			modelPlayers.addRow(row);
+
+		}
 
 //		Object[] row = {
 //				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getNickname()
