@@ -8,6 +8,7 @@ public class DataUpdating extends Thread {
 
 	private LobbyPanel lobby;
 	private Random ran = new Random();
+	private String platform;
 
 	public DataUpdating(LobbyPanel lobby) {
 
@@ -28,6 +29,8 @@ public class DataUpdating extends Thread {
 				lobby.getNameUser().setText(lobby.getInitialPanel().getMainWindow().getGame().getUser().getNickname());
 				lobby.getLevel().setText(lobby.getInitialPanel().getMainWindow().getGame().getUser().getLevel() + "");
 
+		
+				
 			} catch (InterruptedException ex) {
 
 				ex.printStackTrace();

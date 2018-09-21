@@ -20,7 +20,7 @@ public class Player {
 	public Player(String nickname) {
 
 		this.nickname = nickname;
-		platform = null;
+		platform = PLATFORMS[ran.nextInt(PLATFORMS.length)];
 
 		level = ran.nextInt((101 - 1) + 1);
 		ping = ran.nextInt((250 - 1) + 1);

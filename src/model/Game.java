@@ -11,6 +11,11 @@ public class Game {
 	
 	private Player user;
 	private ArrayList<Player> playersOnline;
+	private ArrayList<Player> playersPlay4;
+	private ArrayList<Player> playersXbox;
+	private ArrayList<Player> playersPC;
+	private ArrayList<Player> playersNintendo;
+	 
 
 
 	public Game() {
@@ -18,8 +23,15 @@ public class Game {
 		
 		user = new Player(null);
 		playersOnline = new ArrayList<Player>();
-
+		playersXbox = new ArrayList<Player>();
+		playersPC = new ArrayList<Player>();
+		playersPlay4 = new ArrayList<Player>();
+		playersNintendo = new ArrayList<Player>();
+		
+		
 		playersOnline.add(user);
+		
+		
 		
 		try {
 			connectingPlayers();
@@ -27,6 +39,10 @@ public class Game {
 
 			e.printStackTrace();
 		}
+		
+		
+		putPlayersOnAPlatform();
+		
 
 	}
 
@@ -257,35 +273,35 @@ public class Game {
 			playersOnline.add(new Player(nick));
 			playersOnline.add(new Player(nick));
 			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
-//			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
+			playersOnline.add(new Player(nick));
 //			playersOnline.add(new Player(nick));
 //			playersOnline.add(new Player(nick));
 //			playersOnline.add(new Player(nick));
@@ -592,6 +608,30 @@ public class Game {
 
 		}
 
+	}
+
+	public void putPlayersOnAPlatform() {
+		
+	for(int i = 0; i<playersOnline.size(); i++) {
+		
+	if(playersOnline.get(i).getPlatform().equals("PS4")){
+		
+	playersPlay4.add(playersOnline.get(i));	
+		
+	}
+				
+	}
+		
+		
+	}
+	
+	
+	public ArrayList<Player> getPlayersPlay4() {
+		return playersPlay4;
+	}
+
+	public void setPlayersPlay4(ArrayList<Player> playersPlay4) {
+		this.playersPlay4 = playersPlay4;
 	}
 
 	public ArrayList<Player> getPlayersOnline() {

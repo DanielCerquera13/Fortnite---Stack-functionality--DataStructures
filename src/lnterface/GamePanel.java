@@ -206,11 +206,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			stand.drawAnimation(g, player.getX(), player.getY(), +5);
 
 		}
-		
-		if(explode) {
-			
-			g.drawImage(BOOM, player.getX()+75, player.getY()+80, null);
-			
+
+		if (explode) {
+
+			g.drawImage(BOOM, player.getX() + 75, player.getY() + 80, null);
+
 		}
 
 		repaint();

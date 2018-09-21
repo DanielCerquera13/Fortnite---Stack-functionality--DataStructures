@@ -1,5 +1,6 @@
 package lnterface;
 
+import javax.print.attribute.standard.JobPriority;
 import javax.swing.*;
 
 import threads.DataUpdating;
@@ -43,16 +44,16 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		setLayout(null);
 
 		this.initial = initial;
-		
+
 		updating = new DataUpdating(this);
 
 		matchmaking = new MatchmakingPanel(this);
 
 		Components();
-		
+
 //		name.setText(initial.getMainWindow().getGame().getUser().getNickname());
 		System.out.println(initial.getMainWindow().getGame().getUser().getNickname());
-		
+
 		updating.start();
 
 	}
@@ -159,14 +160,12 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 	}
 
-	
-	
 	public InitialPanel getInitialPanel() {
-		
-	return initial;	
-		
+
+		return initial;
+
 	}
-	
+
 	@Override
 	public void paintComponent(Graphics g) {
 
@@ -185,17 +184,17 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	}
 
 	public JLabel getPing() {
-		
-	return ping;	
-		
+
+		return ping;
+
 	}
-	
+
 	public JLabel getLevel() {
-		
-	return iLevel;	
-		
+
+		return iLevel;
+
 	}
-	
+
 	public JLabel getNameUser() {
 		return name;
 	}
@@ -205,11 +204,11 @@ public class LobbyPanel extends JPanel implements ActionListener {
 	}
 
 	public JLabel getPlayers() {
-		
-	return players;	
-		
+
+		return players;
+
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -241,7 +240,7 @@ public class LobbyPanel extends JPanel implements ActionListener {
 
 		}
 
-		if (command.equals(PLAY)) {
+		if (command.equals(PLAY) && (pc.isSelected() || nintendo.isSelected() || xbox.isSelected() || play4.isSelected())) {
 
 			initial.getMainWindow().remove(this);
 			initial.getMainWindow().add(matchmaking);
@@ -253,6 +252,33 @@ public class LobbyPanel extends JPanel implements ActionListener {
 		if (!pc.isSelected() && !nintendo.isSelected() && !xbox.isSelected() && !play4.isSelected()) {
 
 			image.setIcon(null);
+
+			JOptionPane.showMessageDialog(null, "Please select a platform to play", "Choose a platform",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		if (pc.isSelected()) {
+
+			initial.getMainWindow().getGame().getUser().setPlatform("PC");
+
+		}
+
+		if (nintendo.isSelected()) {
+
+			initial.getMainWindow().getGame().getUser().setPlatform("NINTENDO");
+
+		}
+
+		if (xbox.isSelected()) {
+
+			initial.getMainWindow().getGame().getUser().setPlatform("XBOX");
+
+		}
+		
+		if(play4.isSelected()) {
+			
+			initial.getMainWindow().getGame().getUser().setPlatform("PS4");
+			
 		}
 
 	}

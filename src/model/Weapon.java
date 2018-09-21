@@ -48,6 +48,12 @@ public class Weapon {
 		this.y = y;
 	}
 	
+	public void move() {
+		
+	setX(x-5);	
+		
+	}
+	
 	
 	
 	

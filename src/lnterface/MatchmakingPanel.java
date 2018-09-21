@@ -94,7 +94,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 	public void playersTable() {
 
-		String[] columns = { "Nickname", "Level", "Ping" };
+		String[] columns = { "Nickname", "Level", "Ping", "Platform" };
 
 		modelPlayers = new DefaultTableModel(columns, 0);
 		players = new JTable(modelPlayers);
@@ -143,14 +143,29 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 		Random ran = new Random();
 
 		Game game = lobby.getInitialPanel().getMainWindow().getGame();
+		Player user = game.getUser();
 
-		Object[] row = {
-				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getNickname()
-						+ ran.nextInt(9999),
-				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getLevel(),
-				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getPing() };
+		if (user.getPlatform().equals("PS4")) {
 
-		modelPlayers.addRow(row);
+			Object[] row = {
+					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getNickname()
+							+ ran.nextInt(9999),
+					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getLevel(),
+					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getPing(),
+					game.getPlayersPlay4().get(ran.nextInt(game.getPlayersPlay4().size())).getPlatform() };
+
+			modelPlayers.addRow(row);
+
+		}
+
+//		Object[] row = {
+//				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getNickname()
+//						+ ran.nextInt(9999),
+//				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getLevel(),
+//				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getPing(),
+//				game.getPlayersOnline().get(ran.nextInt(game.getPlayersOnline().size())).getPlatform() };
+//
+//		modelPlayers.addRow(row);
 
 	}
 
@@ -158,7 +173,7 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 		Player player = lobby.getInitialPanel().getMainWindow().getGame().getUser();
 
-		Object[] user = { player.getNickname(), player.getLevel(), player.getPing() };
+		Object[] user = { player.getNickname(), player.getLevel(), player.getPing(), player.getPlatform() };
 
 		modelPlayers.addRow(user);
 
@@ -183,8 +198,8 @@ public class MatchmakingPanel extends JPanel implements ActionListener {
 
 			JOptionPane.showMessageDialog(null, "Welcome to Fortnite", "Play", JOptionPane.INFORMATION_MESSAGE,
 					new ImageIcon("./images/logos/logo.jpg"));
-			JOptionPane.showMessageDialog(null, "To pick the weapons just press C \nTo shoot just press SPACE", "Instructions",
-					JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./images/logos/logo.jpg"));
+			JOptionPane.showMessageDialog(null, "To pick the weapons just press C \nTo shoot just press SPACE",
+					"Instructions", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./images/logos/logo.jpg"));
 		}
 
 	}
