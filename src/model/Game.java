@@ -17,6 +17,7 @@ public class Game {
 	private ArrayList<Player> playersPC;
 	private ArrayList<Player> playersNintendo;
 	private PriorityQueue<Integer, Player> priorityQueue;
+	private Weapon[] weapons;
 
 	public Game() {
 
@@ -29,6 +30,8 @@ public class Game {
 
 		playersOnline.add(user);
 
+		weapons = new Weapon[50];
+
 		priorityQueue = new PriorityQueue<Integer, Player>();
 
 		try {
@@ -38,7 +41,26 @@ public class Game {
 			e.printStackTrace();
 		}
 
+		fillWeapons();
 		putPlayersOnAPlatform();
+
+	}
+
+	public void fillWeapons() {
+
+		Random ran = new Random();
+
+		for (int i = 0; i < weapons.length; i++) {
+
+			weapons[i] = new Weapon(Weapon.NAMES[ran.nextInt(Weapon.NAMES.length)]);
+
+		}
+
+	}
+
+	public Weapon[] getWeapons() {
+
+		return weapons;
 
 	}
 

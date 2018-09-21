@@ -20,11 +20,15 @@ import threads.PlayerMovementThread;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public static final String AXE = "./images/weapons/AXE.png";
-	public static final String AXE1 = "./images/logos/pc.png";
-	public static final String AXE2 = "./images/logos/ps4.jpg";
-	public static final String AXE3 = "./images/logos/switch.png";
-	public static final String AXE4 = "./images/logos/level.png";
-	public static final String AXE5 = "./images/logos/xbox.png";
+	public static final String WEAPON1 = "./images/weapons/weapon1.png";
+	public static final String WEAPON2 = "./images/weapons/weapon2.png";
+	public static final String WEAPON3 = "./images/weapons/weapon3.png";
+	public static final String WEAPON4 = "./images/weapons/weapon4.png";
+	public static final String WEAPON5 = "./images/weapons/weapon5.png";
+	public static final String WEAPON6 = "./images/weapons/weapon6.png";
+	public static final String WEAPON7 = "./images/weapons/weapon7.png";
+	public static final String WEAPON8 = "./images/weapons/weapon8.png";
+	public static final String WEAPON9 = "./images/weapons/weapon9.png";
 
 	public final static String REMOVE = "REMOVE";
 	public final static String ADD = "ADD";
@@ -120,7 +124,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		weapons.setVisibleRowCount(-1);
 		weapons.setBackground(new Color(12, 12, 12, 60));
 		weapons.setBorder(border1);
-
 		JScrollPane listScroller = new JScrollPane(weapons);
 		listScroller.setPreferredSize(new Dimension(300, 250));
 
@@ -173,11 +176,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		ImageIcon image = new ImageIcon(AXE);
 
-		ImageIcon image1 = new ImageIcon(AXE1);
-		ImageIcon image2 = new ImageIcon(AXE2);
-		ImageIcon image3 = new ImageIcon(AXE3);
-		ImageIcon image4 = new ImageIcon(AXE4);
-		ImageIcon image5 = new ImageIcon(AXE5);
+		ImageIcon image1 = new ImageIcon(WEAPON1);
+		ImageIcon image2 = new ImageIcon(WEAPON2);
+		ImageIcon image3 = new ImageIcon(WEAPON3);
+		ImageIcon image4 = new ImageIcon(WEAPON4);
+		ImageIcon image5 = new ImageIcon(WEAPON5);
 
 		listModel.addElement(image);
 		listModel.addElement(image1);
@@ -225,7 +228,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			listModel.removeElementAt(0);
 		}
 		if (a.equals(ADD)) {
-			ImageIcon image5 = new ImageIcon(AXE5);
+			ImageIcon image5 = new ImageIcon("");
 			listModel.add(0, image5);
 		}
 	}

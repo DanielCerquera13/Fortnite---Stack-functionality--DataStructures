@@ -2,18 +2,21 @@ package model;
 
 public class Weapon {
 
-	
+	public static final String[] NAMES = { "./images/weapons/weapon1.png", "./images/weapons/weapon2.png",
+			"./images/weapons/weapon3.png", "./images/weapons/weapon4.png", "./images/weapons/weapon5.png",
+			"./images/weapons/weapon6.png", "./images/weapons/weapon7.png", "./images/weapons/weapon8.png",
+			"./images/weapons/weapon9.png" };
+
 	private String name;
 	private int ammo;
 	private int x;
 	private int y;
-	
+
 	public Weapon(String name) {
-		
-	this.name = name;
-	ammo = 30;
-	
-		
+
+		this.name = name;
+		ammo = 30;
+
 	}
 
 	public String getName() {
@@ -47,16 +50,11 @@ public class Weapon {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 	public void move() {
-		
-	setX(x-5);	
-		
+
+		setX(x - 5);
+
 	}
-	
-	
-	
-	
-	
-	
+
 }

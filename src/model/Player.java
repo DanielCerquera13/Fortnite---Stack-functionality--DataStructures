@@ -51,6 +51,13 @@ public class Player {
 		weapons.pop();
 
 	}
+	
+	
+	public Weapon getActualWeapon() {
+		
+	return weapons.peek();	
+		
+	}
 
 	public void move() {
 
