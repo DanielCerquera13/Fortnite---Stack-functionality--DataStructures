@@ -120,7 +120,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		panelInfo.setLayout(null);
 
 		panelInfo.setBorder(border1);
-
+// Go
 		listModel = new DefaultListModel<ImageIcon>();
 		weapons = new JList<>(listModel);
 		weapons.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
